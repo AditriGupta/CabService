@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Mainstyles.css">
+     <style>
+ /* General Styling */
+
+        .sidebar {
+            background-color: #191A34;
+            color: #fff;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            width: 250px;
+        }
+
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        h5 {
+            font-weight: bold;
+        }
+
+        .bg-dark {
+            background-color: #212529 !important;
+        }
+
+        .budget-chart svg {
+            transform: rotate(-90deg);
+        }
+
+        .circular-chart {
+            transform: rotate(-90deg);
+        }
+
+        .circle {
+            fill: none;
+            stroke-width: 3;
+        }
+
+        .circle:nth-child(1) {
+            stroke: #fff;
+            stroke-dasharray: 40, 60;
+        }
+
+        .circle:nth-child(2) {
+            stroke: #ffffff;
+            stroke-dasharray: 35, 65;
+        }
+
+        .circle:nth-child(3) {
+            stroke: #ffffff;
+            stroke-dasharray: 25, 75;
+        }
+
+        .transaction-history li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .transaction-history li:last-child {
+            border-bottom: none;
+        }
+
+        .transaction-history .circle {
+            width: 12px;
+            height: 12px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .transaction-history .text-success {
+            color: white !important;
+        }
+
+        .transaction-history .text-danger {
+            color: #ffffff !important;
+        }
+
+        .invoice-section .bg-dark {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .invoice-section button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* invoice cards */
+    .ride-card {
+      display: flex;
+      align-items: center;
+      background-color: #242E56;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    .white-square {
+      width: 130px;
+      height: 130px;
+      background-color: #dcdcdc;
+      border-radius: 5px;
+      margin-right: 1rem;
+    }
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+    }
+    .card-body p {
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+      color: white;
+    }
+    .pickup-drop {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    .pickup-drop span {
+      margin: 0 5px;
+    }
+
+/* Sidebar styling */
+.sidebar {
+    background-color: #191A34;
+    height: 100vh;
+    padding-top: 1rem;
+    position: fixed;
+    width: 250px;
+    border-right: 1px solid #444;
+}
+.sidebar2 {
+    background-color:#191A34;
+    height: 5vh;
+    padding-top: 1rem;
+    position: fixed;
+    width: 230px;
+    border-radius: 5px;
+}
+
+.sidebar h4 {
+    padding-left: 1rem;
+    font-weight: bold;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.sidebar3 {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: black;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background-color: #444;
+}
+
+.sidebar i {
+    margin-right: 0.5rem;
+}
+
+.sidebar h5 {
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    color: white;
+}
+.sidebar h5:hover {
+    background-color: #444;
+}
+
+
+     </style>
+
+</head>
+<body>
+   <!-- Sidebar -->
+  <div class="sidebar">
+    <h4>PANARA TRAVELS</h4>
+    <br>
+    <div class="search-bar" style="margin-left: 14px;">
+      <input type="text" placeholder="Search" aria-label="Search">
+    </div>
+    <br>
+    <h6 style="margin-left: 15PX;">DASHBOARD</h6>
+    <a href="./index.html"><i class="bi bi-house"></i>Home</a>
+    <a href="./driverpage.html"><i class="bi bi-person"></i>Driver</a>
+    <a href="./carpage.html"><i class="bi bi-car-front"></i>Car</a>
+    <a href="./customerservice.html"><i class="bi bi-people"></i>Customer</a>
+    <a href="./budgetandinvoice.html"><i class="bi bi-currency-dollar"></i>Budget & Invoice</a>
+    <h6 style="margin-left: 15PX;"><a href="./bookings.html">BOOKINGS</a></h6>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="main-header mb-4">
+      <h3>Today</h3>
+      <p>Dashboard / Home - Upcoming Rides</p>
+    </div>
+    
+<!-- Dashboard Content (Customer Satisfaction and Common Questions) -->
+<!-- Budget and Transaction History Section -->
+<div class="row mt-4">
+  <!-- Budget and Transaction History -->
+  <div class="row">
+    <!-- Budget Section -->
+    <div class="col-md-6 mb-4">
+        <h5>Budget</h5>
+        <div class="bg-dark p-4 rounded-3 text-center">
+            <!-- Circular Chart -->
+            <div class="budget-chart mb-4">
+                <svg width="120" height="200" viewBox="0 0 36 36" class="circular-chart">
+                    <path class="circle"></path>
+                    <path class="circle"></path>
+                    <path class="circle"></path>
+                </svg>
+            </div>
+         
+        </div>
+        <br>
+        <!-- Stats -->
+        <div class="d-flex justify-content-between mb-2">
+            <span class="text-white">Incomes</span>
+        <div style="margin-left: 5vw;">40%</div><div style="height: 8vh;width: 15vw;background-color: #242E56;border-radius: 6%;">
+        <div style="background-color: white;height: 6vh;width: 4vw;margin: 1vh;border-radius: 10%;"></div>    
+        </div>
+
+        </div>
+        <div class="d-flex justify-content-between mb-2 ">
+            <span class="text-danger">Outcomes</span>
+            <div style="margin-left: 4vw;">35%</div><div style="height: 8vh;width: 15vw;background-color: #242E56;border-radius: 5%;">
+                <div style="background-color: white;height: 6vh;width: 4vw;margin: 1vh;border-radius: 10%;"></div>    
+                </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <span class="text-warning">Loan</span>
+            <div style="margin-left: 6vw;">25%</div><div style="height: 8vh;width: 15vw;background-color: #242E56;border-radius: 6%;">
+                <div style="background-color: white;height: 6vh;width: 4vw;margin: 1vh;border-radius: 10%;"></div>    
+                </div>
+        </div>
+    </div>
+
+    <!-- Transaction History Section -->
+    <div class="col-md-6 mb-4">
+        <h5>Transaction History</h5>
+        <div class=" p-4 rounded-3">
+            <ul class="list-unstyled transaction-history">
+                <li>
+                    <div class="circle"></div>
+                    <div>
+                        <p class="mb-0">Fuel Bill</p>
+                        <small>20 September 2024</small>
+                    </div>
+                    <div class="ms-auto text-danger">↓ Rs. 30,000</div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                    <div>
+                        <p class="mb-0">Viraj Co. Customer no.1023</p>
+                        <small>15 September 2024</small>
+                    </div>
+                    <div class="ms-auto text-success">↑ Rs. 10,000</div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                    <div>
+                        <p class="mb-0">Godrej Co. Customer no.1112</p>
+                        <small>13 September 2024</small>
+                    </div>
+                    <div class="ms-auto text-success">↑ Rs. 10,000</div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                    <div>
+                        <p class="mb-0">Driver's salary</p>
+                        <small>1 September 2024</small>
+                    </div>
+                    <div class="ms-auto text-danger">↓ Rs. 1,00,000</div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                    <div>
+                        <p class="mb-0">Godrej Co. Customer no.1112</p>
+                        <small>13 September 2024</small>
+                    </div>
+                    <div class="ms-auto text-success">↑ Rs. 10,000</div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                    <div>
+                        <p class="mb-0">Godrej Co. Customer no.1112</p>
+                        <small>13 September 2024</small>
+                    </div>
+                    <div class="ms-auto text-success">↑ Rs. 10,000</div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                    <div>
+                        <p class="mb-0">Godrej Co. Customer no.1112</p>
+                        <small>13 September 2024</small>
+                    </div>
+                    <div class="ms-auto text-success">↑ Rs. 10,000</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--Invoice section-->
+<h5>Invoice</h5>
+<div class="row">
+    <div class="col-md-6 col-lg-6">
+      <div class="ride-card">
+        <div class="white-square" ><img src="./Images/Company logo.png" alt="" style="height: 18.5vh;margin-left: .08vw;">
+          
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            Company Name
+            
+          </div>
+          <div class="card-body">
+            <p>Amount paid</p>
+            <p>Amount paid</p>
+
+            
+            <p><button>PDF</button></p>
+         
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="ride-card">
+          <div  class="white-square" > <img src="./Images/Company logo.png" alt="" style="height: 18.5vh;margin-left: .08vw;"> </div>
+          <div class="card-content">
+            <div class="card-header">
+              Company Name
+              
+            </div>
+            <div class="card-body">
+              <p>Amount paid</p>
+              <p>Amount paid</p>
+  
+              
+              <p><button>PDF</button></p>
+           
+              </div>
+    </div>
+
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+        <h5><a href="./notificationpage.html" style="text-decoration: none; color: white;">Notifications</a></h5>
+        <div class="notification-item">New booking confirmed... <small>4 min ago</small></div>
+        <div class="notification-item">New booking confirmed... <small>30 min ago</small></div>
+        <div class="notification-item">Viraj Co. has canceled... <small>1 hr ago</small></div>
+        <div class="notification-item">Maintenance completed... <small>4 hrs ago</small></div>
+    
+        <h5><a href="./activities.html" style="text-decoration: none; color: white;">Activities</a></h5>
+        <div class="activity-item">Vehicle scheduled for maintenance <small>1 hr ago</small></div>
+        <div class="activity-item">Transportation policy updated <small>1 hr ago</small></div>
+        <div class="activity-item">Maintenance due of company vehicles <small>1 hr ago</small></div>
+    
+        <h5><a href="./contacts.html" style="text-decoration: none; color: white;">Contacts</a></h5>
+        <div class="search-bar mt-3" style="margin-left: 1px;">
+          <input type="text" placeholder="Search Contacts" aria-label="Search Contacts">
+        </div>
+        <div class="contact-item">Viraj Co <small>99210441231</small></div>
+        <div class="contact-item">Viraj Co <small>99210441231</small></div>
+        <div class="contact-item">Viraj Co <small>99210441231</small></div>
+      </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

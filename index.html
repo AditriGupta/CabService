@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="Mainstyles.css">
+  <style>
+    /* Main content styling */  
+    .chart-section {
+      background-color: #242E56;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      height: 250px;
+      position: relative;
+    }
+  
+    .chart-text {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #888;
+    }
+  
+    /* Ride cards */
+    .ride-card {
+      display: flex;
+      align-items: center;
+      background-color: #242E56;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      color: black;
+    }
+  
+    .white-square {
+      width: 180px;
+      height: 200px;
+      background-color: #dcdcdc;
+      border-radius: 5px;
+      margin-right: 1rem;
+    }
+  
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+  
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+    }
+  
+    .card-body p {
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+      color: 
+      rgb(255, 255, 255);
+    }
+  
+    .pickup-drop {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+  
+    .pickup-drop span {
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h4>PANARA TRAVELS</h4>
+    <br>
+    <div class="search-bar" style="margin-left: 14px;">
+      <input type="text" placeholder="Search" aria-label="Search">
+    </div>
+    <br>
+    <h6 style="margin-left: 15PX;">DASHBOARD</h6>
+    <a href="./index.html"><i class="bi bi-house"></i>Home</a>
+    <a href="./driverpage.html"><i class="bi bi-person"></i>Driver</a>
+    <a href="./carpage.html"><i class="bi bi-car-front"></i>Car</a>
+    <a href="./customerservice.html"><i class="bi bi-people"></i>Customer</a>
+    <a href="./budgetandinvoice.html"><i class="bi bi-currency-dollar"></i>Budget & Invoice</a>
+    <h6 style="margin-left: 15PX;"><a href="./bookings.html">BOOKINGS</a></h6>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="main-header mb-4">
+      <h3>Today</h3>
+      <p>Dashboard / Home - Upcoming Rides</p>
+    </div>
+
+    <div class="chart-section">
+      <p class="chart-text">Not so busy</p>
+    </div>
+
+    <!-- Ride Cards -->
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <div class="ride-card">
+          <div class="white-square"></div>
+          <div class="card-content">
+            <div class="card-header">
+              Company Name
+              <span>⦿</span>
+              
+            </div>
+            <div class="card-body">
+              <p>Customer Name</p>
+              <p>Date</p>
+              <div class="pickup-drop">
+                <p>Pick Up</p>
+                <input type="checkbox">
+                <span>----</span>
+                <input type="checkbox">
+                <p>Drop</p>
+              </div>
+              <p>Full Address</p>
+              <p>Time</p>
+              <p>Driver Name</p>
+              <div style="display: flex; justify-content: space-between;">
+                <p>Driver Name</p>
+                <!-- <p>Car Number</p>    --> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-6">
+        <div class="ride-card">
+          <div class="white-square"></div>
+          <div class="card-content">
+            <div class="card-header">
+              Company Name
+              <span>⦿</span>
+             
+            </div>
+            <div class="card-body">
+              <p>Customer Name</p>
+              <p>Date</p>
+              <div class="pickup-drop">
+                <p>Pick Up</p>
+                <input type="checkbox">
+                <span>----</span>
+                <input type="checkbox">
+                <p>Drop</p>
+              </div>
+              <p>Full Address</p>
+              <p>Time</p>
+              <p>Driver Name</p>
+              <div style="display: flex; justify-content: space-between;">
+                <p>Driver Name</p>
+               <!-- <p>Car Number</p>    --> 
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Additional Ride Cards can be added here -->
+
+    </div>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="right-panel">
+    <h5><a href="./notificationpage.html" style="text-decoration: none; color: white;">Notifications</a></h5>
+    <div class="notification-item">New booking confirmed... <small>4 min ago</small></div>
+    <div class="notification-item">New booking confirmed... <small>30 min ago</small></div>
+    <div class="notification-item">Viraj Co. has canceled... <small>1 hr ago</small></div>
+    <div class="notification-item">Maintenance completed... <small>4 hrs ago</small></div>
+
+    <h5><a href="./activities.html" style="text-decoration: none; color: white;">Activities</a></h5>
+    <div class="activity-item">Vehicle scheduled for maintenance <small>1 hr ago</small></div>
+    <div class="activity-item">Transportation policy updated <small>1 hr ago</small></div>
+    <div class="activity-item">Maintenance due of company vehicles <small>1 hr ago</small></div>
+
+    <h5><a href="./contacts.html" style="text-decoration: none; color: white;">Contacts</a></h5>
+    <div class="search-bar mt-3" style="margin-left: 1px;">
+      <input type="text" placeholder="Search Contacts" aria-label="Search Contacts">
+    </div>
+    <div class="contact-item">Viraj Co <small>99210441231</small></div>
+    <div class="contact-item">Viraj Co <small>99210441231</small></div>
+    <div class="contact-item">Viraj Co <small>99210441231</small></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
